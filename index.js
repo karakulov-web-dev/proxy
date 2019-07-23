@@ -18,15 +18,8 @@ class ProxyTableFacade {
     }, 7200000);
   }
   add(url) {
-    let status;
-    if (this.allowedProxy.has(url)) {
-      status = true;
-    }
-    let matches = url.match(/(^http.*\/\/.*)\//);
-    if (matches && !status && this.allowedProxy.has(matches[1])) {
-      status = true;
-    }
-    if (!status) {
+    let matches = url.match(/^https?:\/\/[^\/]+/i);
+    if (!(matches && this.allowedProxy.has(matches[0]))) {
       return "";
     }
     var proxyUrl = "/" + md5(url);
