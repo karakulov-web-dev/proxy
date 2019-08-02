@@ -39,7 +39,9 @@ class ProxyTableFacade {
 }
 
 const proxyTableFacade = new ProxyTableFacade([
-  "http://xn--42-mlcqimbe0a8d2b.xn--p1ai"
+  "http://xn--42-mlcqimbe0a8d2b.xn--p1ai",
+  "http://xn--d1abdw2b.net",
+  "https://xn--d1abdw2b.net"
 ]);
 
 app.get("/get-url-proxy", function(req, res) {
